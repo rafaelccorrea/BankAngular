@@ -1,0 +1,62 @@
+<nb-layout>
+
+  <nb-layout-header style="background-color: rgb(222, 245, 253)" fixed>
+
+   <div>
+
+      <a href="/signin"><img class="imgCuca" src="../../../assets/img/marca_cuca.png"></a>
+
+   </div>
+
+  </nb-layout-header>
+
+  <nb-layout-column style="background-image:url(../../../assets/img/bank-account.jpg);">
+
+<div class="signup-form">
+  <form [formGroup]="signupForm">
+  <h2>Cadastrar-se</h2>
+  <p style="color: white;"> Rapido e pratico, levara 1 minuto.</p>
+  <hr>
+      <div class="form-group">
+        <input type="text" class="form-control" formControlName="name" name="name" placeholder="Usuario" required="required">
+      </div>
+      <div class="form-group">
+        <input type="email" class="form-control" formControlName="email" name="email" placeholder="Email" required="required">
+      </div>
+      <div class="form-group">
+        <input type="text" class="form-control" formControlName="cpf" name="cpf" placeholder="Cpf" required="required">
+      </div>
+      <div class="form-group">
+        <input type="text" class="form-control" formControlName="cellphone" name="cellphone" placeholder="Telefone" required="required">
+      </div>
+      <div class="form-group">
+        <input type="text" class="form-control" formControlName="birth" name="birth" placeholder="Data De Nascimento" required="required">
+    </div>
+  <div class="form-group">
+          <input type="password" class="form-control" formControlName="password" name="password" placeholder="Senha" required="required">
+      </div>
+
+  <div class="form-group">
+          <button class="btn btn-primary btn-block btn-lg" (click)="Cadastrar()">Cadastrar</button>
+      </div>
+  <p style="color: white;" class="small text-center">Leia aqui os <br><a href="#">Termos &amp; Condições</a>, e <a href="#">Políticas de Privacidade</a>.</p>
+
+  <div style="color:white" class="text-center">Ja tem seu cadastro? <a style="text-decoration:none" href="/signin">Login Aqui!</a></div>
+  </form>
+
+</div>
+
+</nb-layout-column>
+
+<nb-layout-footer class="footer" fixed>
+  <div>
+    <a class="dev" href="#">Developer RafaelCorrea © 2021</a>
+    <div>
+      Avenida das Esmeraldas, nº 2657. Marília/SP - Fone: (14) 2105-9000
+     </div>
+  </div>
+
+
+</nb-layout-footer>
+
+</nb-layout>
