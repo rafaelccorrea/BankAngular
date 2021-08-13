@@ -1,0 +1,85 @@
+body {
+  background-image: url("../../../assets/img/bank-account.jpg");
+}
+.form-control {
+	min-height: 41px;
+	box-shadow: none;
+	border-color: #e1e4e5;
+	font-size: 14px;
+}
+.form-control, .btn {
+	border-radius: 3px;
+}
+.signup-form {
+	width: 450px;
+	margin: 0 auto;
+	padding: 30px 0;
+}
+.signup-form form {
+	color: #9ba5a8;
+	border-radius: 3px;
+	margin-bottom: 15px;
+	background:  rgba(0,0,0,0.5) !important;
+	box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+	padding: 30px;
+}
+.signup-form h2 {
+	color: rgb(255, 255, 255);
+	font-weight: bold;
+	margin-top: 0;
+}
+.signup-form hr {
+	margin: 0 -30px 20px;
+}
+.signup-form .form-group {
+	margin-bottom: 15px;
+}
+.signup-form label {
+	font-weight: normal;
+	font-size: 13px;
+}
+.signup-form .btn, .signup-form .btn:active {
+	font-size: 16px;
+	font-weight: bold;
+	background: #5fcaba !important;
+	border: none;
+	min-width: 140px;
+}
+.signup-form .btn:hover, .signup-form .btn:focus {
+	background: #3fc0ad !important;
+}
+.signup-form a {
+	color: #2b98ef;
+	text-decoration: none;
+
+}
+.signup-form a:hover {
+	text-decoration: none;
+}
+.signup-form form a {
+	color: #5fcaba;
+	text-decoration: none;
+}
+.signup-form form a:hover {
+	text-decoration: underline;
+}
+
+.imgCuca{
+  width: 50%;
+  margin-left: 15%
+}
+
+.footer{
+  display: flex;
+  width: 100%;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 50px;
+}
+
+.dev{
+  text-decoration: none;
+  font-style: italic;
+  font-weight: bold;
+}

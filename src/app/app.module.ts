@@ -4,19 +4,23 @@ import { NgModule } from '@angular/core';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { NbThemeModule, NbLayoutModule } from '@nebular/theme';
+import { NbThemeModule, NbLayoutModule, NbCardModule, NbToastrModule } from '@nebular/theme';
 import { NbEvaIconsModule } from '@nebular/eva-icons';
 import { AppRoutingModule } from './app-routing.module';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { SignupComponent } from './components/signup/signup.component';
 import { HttpClientModule } from '@angular/common/http';
+import { HomeBankComponent } from './components/home-bank/home-bank.component';
+import { CreateAccountComponent } from './components/create-account/create-account.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     SigninComponent,
     SignupComponent,
+    HomeBankComponent,
+    CreateAccountComponent,
   ],
   imports: [
     BrowserModule,
@@ -31,7 +35,8 @@ import { HttpClientModule } from '@angular/common/http';
     FormsModule,
     HttpClientModule,
     ReactiveFormsModule,
-
+    NbCardModule,
+    NbToastrModule.forRoot(),
   ],
   providers: [],
   bootstrap: [AppComponent]

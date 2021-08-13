@@ -1,0 +1,80 @@
+<nb-layout>
+
+  <nb-layout-header style="background-color: rgb(222, 245, 253)" fixed>
+
+   <div>
+
+      <a href="/signin"><img class="imgCuca" src="../../../assets/img/marca_cuca.png"></a>
+
+   </div>
+
+  </nb-layout-header>
+
+  <nb-layout-column>
+
+<div class="signup-form">
+  <form [formGroup]="createAccount">
+  <h2>Conta Bancaria</h2>
+  <p style="color: white;"> Cuca Bank!</p>
+  <hr>
+      <div class="form-group">
+        <input type="email" class="form-control" formControlName="agencia" name="agencia" placeholder="Agencia" required="required">
+      </div>
+      <div class="form-group">
+        <input type="text" class="form-control" formControlName="agencia_dv" name="agencia_dv" placeholder="Digito da agencia" required="required">
+      </div>
+      <div class="form-group">
+        <input type="text" class="form-control" formControlName="conta" name="Conta" placeholder="Conta" required="required">
+      </div>
+      <div class="form-group">
+        <input type="text" class="form-control" formControlName="conta_dv" name="conta_dv" placeholder="Digito da conta" required="required">
+    </div>
+    <div >
+      <label style="color: white">Tipo da Conta</label><br>
+      <select style="border-radius: 8px;" type="text" formControlName="typeAccount" name="typeAccount" required="required" class="form-group" class="form-group">
+        <option >
+            conta_corrente
+        </option>
+        <option>
+           conta_poupanca
+      </option>
+        </select>
+    </div>
+      <div class="form-group">
+        <input type="text" class="form-control" formControlName="document_number" name="document_number" placeholder="CPF / CNPJ" required="required">
+    </div>
+    <div >
+      <label style="color: white">Tipo de documento</label><br>
+      <select style="border-radius: 8px;" formControlName="document_type" name="document_type" required="required" class="form-group" class="form-group">
+        <option>
+            CPF
+        </option>
+        <option>
+            CNPJ
+      </option>
+        </select><br>
+        <label style="color: white">Descrição</label><br>
+        <textarea formControlName="description" name="description"  class="form-control"></textarea>
+    </div><br>
+  <div class="form-group">
+          <button class="btn btn-primary btn-block btn-lg" (click)="Cadastrar()">Cadastrar</button>
+  </div>
+
+  </form>
+
+</div>
+
+</nb-layout-column>
+
+<nb-layout-footer class="footer" fixed>
+  <div>
+    <a class="dev" href="#">Developer RafaelCorrea © 2021</a>
+    <div>
+      Avenida das Esmeraldas, nº 2657. Marília/SP - Fone: (14) 2105-9000
+     </div>
+  </div>
+
+
+</nb-layout-footer>
+
+</nb-layout>
