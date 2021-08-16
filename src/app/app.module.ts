@@ -13,7 +13,11 @@ import { SignupComponent } from './components/signup/signup.component';
 import { HttpClientModule } from '@angular/common/http';
 import { HomeBankComponent } from './components/home-bank/home-bank.component';
 import { CreateAccountComponent } from './components/create-account/create-account.component';
+import { registerLocaleData } from '@angular/common';
+import localePt from '@angular/common/locales/pt';
+import { LOCALE_ID } from '@angular/core';
 
+registerLocaleData(localePt);
 @NgModule({
   declarations: [
     AppComponent,
@@ -38,7 +42,8 @@ import { CreateAccountComponent } from './components/create-account/create-accou
     NbCardModule,
     NbToastrModule.forRoot(),
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  providers: [{provide: LOCALE_ID, useValue: 'pt-BR'}],
+  bootstrap: [AppComponent],
+
 })
 export class AppModule { }

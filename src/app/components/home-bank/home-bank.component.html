@@ -14,16 +14,19 @@
 
     <nb-card  style="border-color: #00d68f" status="success">
       <nb-card-header>Conta Bancaria</nb-card-header>
+      <small>{{typeAccount}}</small>
       <nb-card-body>
 
           <div>
+            <div>
             <p>Olá {{name}} Seja Bem vindo!</p>
-            <p>Conta iniciada: </p>
+            <p>Conta iniciada: {{initial | date }} </p>
             <hr>
-            <small style="font-style: italic;">Banco: </small>
-            <small style="font-style: italic;">Conta: </small>
-            <small style="font-style: italic;">Agencia: </small>
-            <p>Saldo Conta: <strong>R$99,90</strong></p>
+              <small style="font-style: italic;">Banco: {{bank_code}} </small>
+              <small style="font-style: italic;">Conta: {{conta}} </small>
+              <small style="font-style: italic;">Agencia: {{agencia}} </small>
+              <p>Saldo Conta: <strong>R$99,90</strong></p>
+            </div>
           </div>
 
       </nb-card-body>
