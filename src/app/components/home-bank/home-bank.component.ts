@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { AccountService } from 'src/app/services/account/account-bank.service';
+import { NbDuplicateToastBehaviour } from '@nebular/theme';
 import { UserService } from 'src/app/services/user/user.service';
-
-
+import { AccountService } from 'src/app/services/account/account-bank.service';
 @Component({
   selector: 'app-home-bank',
   templateUrl: './home-bank.component.html',
@@ -19,18 +18,25 @@ export class HomeBankComponent implements OnInit {
   description: string;
   initial = new Date();
 
-  constructor( public userService: UserService, public accountService: AccountService){
+  constructor( public userService: UserService, public service: AccountService){
 
   }
 
+  options = [
+    { value: 'previous' , label: 'Duplicate previous', checked: true },
+    { value: 'all' , label: 'Duplicate all' },
+  ];
+
+  option: NbDuplicateToastBehaviour = 'previous';
+
   ngOnInit() {
+
     this.name = this.userService.user.name;
-    this.bank_code = this.accountService.account.data.bank_code;
-    this.agencia = this.accountService.account.data.agencia;
-    this.conta = this.accountService.account.data.conta;
-    this.typeAccount = this.accountService.account.data.typeAccount;
-    this.description = this.accountService.account.data.description;
-    this.initial = this.initial
+
+    const busca = {bank_code: this.bank_code, agencia: this.agencia,  conta: this.conta, typeAccount: this.typeAccount, description: this.description }
+    this.service.getInfos(busca)
+    localStorage.setItem("Authorization", this.userService.user.token)
+
   }
 
 }

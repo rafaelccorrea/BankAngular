@@ -10,10 +10,10 @@ export const account_form: createAccount = {
   document_type:'',
   description: '',
   legal_name:'',
-  userId:0,
+  userId: 0
 }
-
 export interface createAccount{
+
   bank_code: string;
   agencia:string;
   agencia_dv:string;
@@ -24,10 +24,12 @@ export interface createAccount{
   document_type:string;
   description: string;
   legal_name:string;
-  userId: number;
+  userId:number
 
 }
 
-export interface ResponseAccount {
+export interface AccountResponse {
+  status: string;
+  message: string;
   data: createAccount;
 }

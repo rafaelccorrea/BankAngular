@@ -29,11 +29,8 @@ export class SigninComponent {
 
   login(){
 
-    const userId = this.accountService.account.data.userId
-
     const logar = {login: this.name, password: this.password}
     this.service.logar(logar).subscribe((res: UserResponse) => {
-      if(userId == userId){
         console.log(res.data);
         this.userService.user = res.data;
         console.log(this.userService.user)
@@ -43,15 +40,10 @@ export class SigninComponent {
         setTimeout(() => {
           this.router.navigate(['/home'])
         }, 2000)
-      }else if(userId != userId){
-        this.router.navigate(['/create'])
-      }
-
     }, error => {
       this.showToast('Erro ao Entrar!', 'danger')
       console.log(error);
     })
-
   }
 
   deleteCampos(){
