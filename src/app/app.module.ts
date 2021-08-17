@@ -42,7 +42,8 @@ registerLocaleData(localePt);
     NbCardModule,
     NbToastrModule.forRoot(),
   ],
-  providers: [{provide: LOCALE_ID, useValue: 'pt-BR'}],
+  providers: [
+    {provide: LOCALE_ID, useValue: 'pt-BR',}],
   bootstrap: [AppComponent],
 
 })

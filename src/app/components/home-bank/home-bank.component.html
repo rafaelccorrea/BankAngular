@@ -14,24 +14,37 @@
 
     <nb-card  style="border-color: #00d68f" status="success">
       <nb-card-header>Conta Bancaria</nb-card-header>
-      <small>{{typeAccount}}</small>
+      <small></small>
       <nb-card-body>
 
           <div>
             <div>
-            <p>Olá {{name}} Seja Bem vindo!</p>
-            <p>Conta iniciada: {{initial | date }} </p>
+            <p style="font-size:18px; font-style: italic;">Olá {{infoBank.legal_name}} Seja Bem vindo!</p>
+            <div *ngFor="let infoBank of infoBank">
+              <small style="font-size: 14px;">Tipo de conta:  <strong style="font-size: 12px;">{{infoBank.typeAccount}}</strong></small><br>
+            <small style="font-size: 14px;">Conta iniciada: <strong style="font-size: 12px;">{{infoBank.createdAt | date: 'dd/MM/yyyy'}}</strong></small><br>
+            <small style="font-size: 14px;">Saldo Conta: <strong style="font-size: 16px;">R$ 99,90</strong></small>
             <hr>
-              <small style="font-style: italic;">Banco: {{bank_code}} </small>
-              <small style="font-style: italic;">Conta: {{conta}} </small>
-              <small style="font-style: italic;">Agencia: {{agencia}} </small>
-              <p>Saldo Conta: <strong>R$99,90</strong></p>
+            <div>
+              <p style="font-size:18px; font-style: italic;">Dados Bancarios</p>
+              <small style="font-size: 14px;">Banco: {{infoBank.bank_code}} </small> <br>
+              <small style="font-size: 14px;">Conta: {{infoBank.conta}} </small> <br>
+              <small style="font-size: 14px;">Agencia:{{infoBank.agencia}}  </small>
+             </div>
             </div>
           </div>
+            </div>
+
 
       </nb-card-body>
       <nb-card-footer>
-        <p style="font-size: 18px;"> Extrato </p>
+        <p style="font-size: 18px; font-style: italic;"> Configurações da Conta </p>
+        <div class="form-group">
+          <button class="btn btn-danger" (click)="Excluir()">Deletar</button>
+      </div>
+      <div class="form-group">
+        <button class="btn btn-warning" (click)="Editar()">Alterar</button>
+    </div>
         <hr>
       </nb-card-footer>
     </nb-card>

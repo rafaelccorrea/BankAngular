@@ -1,29 +1,26 @@
-import { Injectable } from '@angular/core';
+import { EventEmitter, Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { AccountResponse } from 'src/app/models/createAccount'
+import { createAccount } from 'src/app/models/createAccount'
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AccountService {
 
-  private url = 'http://localhost:8000/api/account';
+  private url = 'http://localhost:8000';
 
-  private _account: AccountResponse;
-
-  private _url = 'http://localhost:8000/api/account/:id';
-
-  busca: any = {};
+  private _account: createAccount;
 
   cadastro: any = {};
 
   constructor( private httpClient: HttpClient) {}
 
-  public get account(): AccountResponse {
+  public get account(): createAccount {
     return this._account
   }
 
-  public set account(account: AccountResponse) {
+  public set account(account: createAccount) {
     this._account = account;
   }
 
@@ -34,13 +31,23 @@ export class AccountService {
     })
     this.cadastro = $event;
     console.log($event);
-    return this.httpClient.post(this.url, $event, { headers })
+    return this.httpClient.post(`${this.url}/api/account`, $event, { headers })
   }
 
-  getInfos($event){
-    console.log($event);
-    this.busca = $event;
-    return this.httpClient.get(this._url, $event)
+  getInfos(){
+    let headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': localStorage.getItem('Authorization')
+    })
+    return this.httpClient.get( `${this.url}/api/account`,{ headers })
+  }
+
+  updateAccount(id: number, request: createAccount):Observable<createAccount>{
+    return this.httpClient.put<createAccount>( `${this.url}/api/account`+id, request);
+  }
+
+  deleteAccount(){
+    return this.httpClient.delete(`${this.url}/api/account`);
   }
 
 }

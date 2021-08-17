@@ -5,6 +5,7 @@ export interface User{
     cpf: string
     cellphone: string;
     birth: string;
+    accountId: number;
     updatedAt: string;
     createdAt: string;
     admin: boolean;

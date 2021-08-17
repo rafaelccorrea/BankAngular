@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { NbDuplicateToastBehaviour } from '@nebular/theme';
 import { UserService } from 'src/app/services/user/user.service';
 import { AccountService } from 'src/app/services/account/account-bank.service';
+import { AccountResponse } from 'src/app/models/createAccount'
 @Component({
   selector: 'app-home-bank',
   templateUrl: './home-bank.component.html',
@@ -10,17 +11,10 @@ import { AccountService } from 'src/app/services/account/account-bank.service';
 
 export class HomeBankComponent implements OnInit {
 
-  name: string;
-  bank_code: string;
-  agencia:string;
-  conta:string;
-  typeAccount:string;
-  description: string;
-  initial = new Date();
-
   constructor( public userService: UserService, public service: AccountService){
-
   }
+
+  infoBank: any = []
 
   options = [
     { value: 'previous' , label: 'Duplicate previous', checked: true },
@@ -29,14 +23,31 @@ export class HomeBankComponent implements OnInit {
 
   option: NbDuplicateToastBehaviour = 'previous';
 
-  ngOnInit() {
+  buscar(){
+    this.service.getInfos().subscribe((res: AccountResponse ) =>{
+      console.log('InfoBank',res.data);
+      this.infoBank = res.data
+    }), error => {
+      console.log(error);
+    }
+  }
 
-    this.name = this.userService.user.name;
-
-    const busca = {bank_code: this.bank_code, agencia: this.agencia,  conta: this.conta, typeAccount: this.typeAccount, description: this.description }
-    this.service.getInfos(busca)
-    localStorage.setItem("Authorization", this.userService.user.token)
+  Editar(){
 
   }
+
+  Excluir() {
+    this.infoBank.delete(this.service.deleteAccount().subscribe((res: AccountResponse ) =>{
+      console.log('InfoBank',res.data);
+      this.infoBank = res.data
+    }), error => {
+      console.log(error);
+    }
+    )
+  }
+
+  ngOnInit(): void {
+    this.buscar()
+    }
 
 }

@@ -40,13 +40,11 @@ export class SignupComponent {
       console.log(error);
       this.showToast('Erro ao Cadastrar!', 'danger')
     })
-
   }
 
   deleteCampos(){
     this.signupForm.patchValue(SIGNUP_FORM)
   }
-
 
   showToast(message, status) {
     this.toastrService.show(
