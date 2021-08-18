@@ -1,5 +1,6 @@
 
 export const account_form: createAccount = {
+  id: null,
   bank_code: '342',
   agencia:'',
   agencia_dv:'',
@@ -10,10 +11,12 @@ export const account_form: createAccount = {
   document_type:'',
   description: '',
   legal_name:'',
+  createdAt:'',
   userId: 0
 }
 export interface createAccount{
 
+  id: number,
   bank_code: string;
   agencia:string;
   agencia_dv:string;
@@ -24,6 +27,7 @@ export interface createAccount{
   document_type:string;
   description: string;
   legal_name:string;
+  createdAt:string;
   userId:number
 
 }

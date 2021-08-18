@@ -14,38 +14,40 @@
 
     <nb-card  style="border-color: #00d68f" status="success">
       <nb-card-header>Conta Bancaria</nb-card-header>
-      <small></small>
       <nb-card-body>
 
           <div>
             <div>
-            <p style="font-size:18px; font-style: italic;">Olá {{infoBank.legal_name}} Seja Bem vindo!</p>
-            <div *ngFor="let infoBank of infoBank">
+            <p style="font-size:18px; font-style: italic;">Olá <small style="font-size:18px; color: #069ce2">{{infoBank.legal_name}}</small> Seja Bem vindo!</p>
+            <div>
               <small style="font-size: 14px;">Tipo de conta:  <strong style="font-size: 12px;">{{infoBank.typeAccount}}</strong></small><br>
             <small style="font-size: 14px;">Conta iniciada: <strong style="font-size: 12px;">{{infoBank.createdAt | date: 'dd/MM/yyyy'}}</strong></small><br>
             <small style="font-size: 14px;">Saldo Conta: <strong style="font-size: 16px;">R$ 99,90</strong></small>
             <hr>
             <div>
               <p style="font-size:18px; font-style: italic;">Dados Bancarios</p>
-              <small style="font-size: 14px;">Banco: {{infoBank.bank_code}} </small> <br>
-              <small style="font-size: 14px;">Conta: {{infoBank.conta}} </small> <br>
-              <small style="font-size: 14px;">Agencia:{{infoBank.agencia}}  </small>
-             </div>
+              <small style="font-size: 14px;">Banco: <strong style="font-size: 12px;"> {{infoBank.bank_code}} </strong></small> <br>
+              <small style="font-size: 14px;">Conta: <strong style="font-size: 12px;"> {{infoBank.conta}} </strong> </small> <br>
+              <small style="font-size: 14px;">Agencia: <strong style="font-size: 12px;"> {{infoBank.agencia}} </strong></small>
             </div>
           </div>
-            </div>
+        </div>
+      </div>
 
-
-      </nb-card-body>
-      <nb-card-footer>
-        <p style="font-size: 18px; font-style: italic;"> Configurações da Conta </p>
-        <div class="form-group">
-          <button class="btn btn-danger" (click)="Excluir()">Deletar</button>
+    </nb-card-body>
+    <nb-card-footer>
+      <p style="font-size: 18px; font-style: italic;"> Configurações da Conta </p>
+      <div class="form-group">
+        <button nbButton size="small" nbButton outline status="danger" (click)="Excluir()">Deletar</button>
       </div>
       <div class="form-group">
-        <button class="btn btn-warning" (click)="Editar()">Alterar</button>
-    </div>
-        <hr>
+        <button nbButton size="small" nbButton outline status="warning" (click)="Editar()">Alterar</button>
+      </div>
+      <hr>
+      <div>
+        <p style="font-size: 18px; font-style: italic;"> Descrição: </p>
+        <small>{{infoBank.description}}</small>
+      </div>
       </nb-card-footer>
     </nb-card>
 
@@ -53,7 +55,7 @@
 
   <nb-layout-footer class="footer" fixed>
     <div>
-      <a class="dev" href="#">Developer RafaelCorrea © 2021</a>
+      <a class="dev" href="https://github.com/rafaelccorrea">Developer RafaelCorrea © 2021</a>
       <div>
         Avenida das Esmeraldas, nº 2657. Marília/SP - Fone: (14) 2105-9000
        </div>

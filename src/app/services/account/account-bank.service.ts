@@ -43,11 +43,19 @@ export class AccountService {
   }
 
   updateAccount(id: number, request: createAccount):Observable<createAccount>{
-    return this.httpClient.put<createAccount>( `${this.url}/api/account`+id, request);
+    let headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': localStorage.getItem('Authorization')
+    })
+    return this.httpClient.put<createAccount>( `${this.url}/api/account/${id}`, request, { headers });
   }
 
   deleteAccount(){
-    return this.httpClient.delete(`${this.url}/api/account`);
+    let headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': localStorage.getItem('Authorization')
+    })
+    return this.httpClient.delete(`${this.url}/api/account/`,{ headers });
   }
 
 }

@@ -1,8 +1,11 @@
+import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { NbDuplicateToastBehaviour } from '@nebular/theme';
 import { UserService } from 'src/app/services/user/user.service';
 import { AccountService } from 'src/app/services/account/account-bank.service';
-import { AccountResponse } from 'src/app/models/createAccount'
+import { AccountResponse, account_form, createAccount } from 'src/app/models/createAccount'
+
+
 @Component({
   selector: 'app-home-bank',
   templateUrl: './home-bank.component.html',
@@ -11,10 +14,11 @@ import { AccountResponse } from 'src/app/models/createAccount'
 
 export class HomeBankComponent implements OnInit {
 
-  constructor( public userService: UserService, public service: AccountService){
+  constructor( public userService: UserService, public service: AccountService, public router: Router){
   }
 
-  infoBank: any = []
+  infoBank: createAccount = account_form
+  userId = this.userService.user.id
 
   options = [
     { value: 'previous' , label: 'Duplicate previous', checked: true },
@@ -25,7 +29,11 @@ export class HomeBankComponent implements OnInit {
 
   buscar(){
     this.service.getInfos().subscribe((res: AccountResponse ) =>{
-      console.log('InfoBank',res.data);
+      console.log(res)
+
+      if(res.status == 'error'){
+        this.router.navigate(['/create'])
+      }
       this.infoBank = res.data
     }), error => {
       console.log(error);
@@ -34,16 +42,19 @@ export class HomeBankComponent implements OnInit {
 
   Editar(){
 
+    this.service.updateAccount(this.userId, account_form)
+
   }
 
   Excluir() {
-    this.infoBank.delete(this.service.deleteAccount().subscribe((res: AccountResponse ) =>{
-      console.log('InfoBank',res.data);
-      this.infoBank = res.data
+    this.service.deleteAccount().subscribe((res: AccountResponse)=> {
+      console.log(res)
+      if(res.status == 'success'){
+        this.router.navigate(['/signin'])
+      }
     }), error => {
       console.log(error);
     }
-    )
   }
 
   ngOnInit(): void {

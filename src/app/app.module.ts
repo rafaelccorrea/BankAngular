@@ -4,7 +4,7 @@ import { NgModule } from '@angular/core';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { NbThemeModule, NbLayoutModule, NbCardModule, NbToastrModule } from '@nebular/theme';
+import { NbThemeModule, NbLayoutModule, NbCardModule, NbToastrModule, NbButtonModule, NbDialogModule } from '@nebular/theme';
 import { NbEvaIconsModule } from '@nebular/eva-icons';
 import { AppRoutingModule } from './app-routing.module';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
@@ -16,6 +16,8 @@ import { CreateAccountComponent } from './components/create-account/create-accou
 import { registerLocaleData } from '@angular/common';
 import localePt from '@angular/common/locales/pt';
 import { LOCALE_ID } from '@angular/core';
+
+
 
 registerLocaleData(localePt);
 @NgModule({
@@ -41,6 +43,9 @@ registerLocaleData(localePt);
     ReactiveFormsModule,
     NbCardModule,
     NbToastrModule.forRoot(),
+    NbButtonModule,
+    NbDialogModule.forChild(),
+
   ],
   providers: [
     {provide: LOCALE_ID, useValue: 'pt-BR',}],
