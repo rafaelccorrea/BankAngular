@@ -1,9 +1,10 @@
 import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
-import { NbDuplicateToastBehaviour } from '@nebular/theme';
+import { NbDialogService, NbDuplicateToastBehaviour } from '@nebular/theme';
 import { UserService } from 'src/app/services/user/user.service';
 import { AccountService } from 'src/app/services/account/account-bank.service';
 import { AccountResponse, account_form, createAccount } from 'src/app/models/createAccount'
+import { TemplateRef } from '@angular/core';
 
 
 @Component({
@@ -14,11 +15,15 @@ import { AccountResponse, account_form, createAccount } from 'src/app/models/cre
 
 export class HomeBankComponent implements OnInit {
 
-  constructor( public userService: UserService, public service: AccountService, public router: Router){
+  constructor( public userService: UserService,
+    public service: AccountService,
+    public router: Router,
+    private dialogService: NbDialogService){
+
   }
 
   infoBank: createAccount = account_form
-  userId = this.userService.user.id
+
 
   options = [
     { value: 'previous' , label: 'Duplicate previous', checked: true },
@@ -26,6 +31,10 @@ export class HomeBankComponent implements OnInit {
   ];
 
   option: NbDuplicateToastBehaviour = 'previous';
+
+  open(dialog: TemplateRef<any>) {
+    this.dialogService.open(dialog, { context: 'this is some additional data passed to dialog' });
+  }
 
   buscar(){
     this.service.getInfos().subscribe((res: AccountResponse ) =>{
@@ -38,12 +47,6 @@ export class HomeBankComponent implements OnInit {
     }), error => {
       console.log(error);
     }
-  }
-
-  Editar(){
-
-    this.service.updateAccount(this.userId, account_form)
-
   }
 
   Excluir() {
@@ -59,6 +62,6 @@ export class HomeBankComponent implements OnInit {
 
   ngOnInit(): void {
     this.buscar()
-    }
+  }
 
 }

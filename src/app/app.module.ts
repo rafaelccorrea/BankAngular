@@ -19,6 +19,7 @@ import { LOCALE_ID } from '@angular/core';
 
 
 
+
 registerLocaleData(localePt);
 @NgModule({
   declarations: [
@@ -45,6 +46,7 @@ registerLocaleData(localePt);
     NbToastrModule.forRoot(),
     NbButtonModule,
     NbDialogModule.forChild(),
+    NbDialogModule.forRoot()
 
   ],
   providers: [

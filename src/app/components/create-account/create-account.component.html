@@ -13,7 +13,7 @@
   <nb-layout-column>
 
 <div class="signup-form">
-  <form [formGroup]="createAccount">
+  <form [formGroup]="createAccountForm">
   <h2>Conta Bancaria</h2>
   <p style="color: white;"> Cuca Bank!</p>
   <hr>
@@ -57,7 +57,7 @@
         <textarea formControlName="description" name="description"  class="form-control"></textarea>
     </div><br>
   <div class="form-group">
-          <button class="btn btn-primary btn-block btn-lg" (click)="Cadastrar()">Cadastrar</button>
+          <button class="btn btn-primary btn-block btn-lg" (click)="salvar()">{{id ? 'Atualizar' : 'Cadastrar'}}</button>
   </div>
 
   </form>
