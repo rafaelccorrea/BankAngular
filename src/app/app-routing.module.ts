@@ -1,19 +1,18 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { SigninComponent } from './components/signin/signin.component';
-import { SignupComponent } from './components/signup/signup.component';
-import { HomeBankComponent } from './components/home-bank/home-bank.component';
-import { CreateAccountComponent } from './components/create-account/create-account.component'
 
 export const routes: Routes = [
   {path: '', redirectTo: 'signin', pathMatch: 'full'},
-  {path: 'signin',  component: SigninComponent},
-  {path: 'signup', component: SignupComponent},
-  {path: 'home', component: HomeBankComponent},
+  {path: '/signin', loadChildren: () => import('./components/signin/signin.module').then( m => m.SigninModule)},
+  {path: 'bank', loadChildren: () => import('./components/create-account/create-account.module').then( m => m.CreateAccountModule)},
+  {path: 'bank', loadChildren: () => import('./components/create-account/create-account.module').then( m => m.CreateAccountModule)},
+  {path: '/signup', loadChildren: () => import('./components/signup/signup.module').then( m => m.SignupModule)},
+  {path: '/home', loadChildren:() => import('./components/home-bank/home-bank.module').then( m => m.HomebankModule)},
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule],
 })
+
 export class AppRoutingModule { }

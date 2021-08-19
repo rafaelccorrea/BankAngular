@@ -1,32 +1,29 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { CreateAccountComponent } from './create-account.component';
-import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { SigninComponent } from  './signin.component'
+import { FormsModule } from '@angular/forms';
 import { NbThemeModule, NbLayoutModule, NbCardModule, NbToastrModule, NbButtonModule, NbDialogModule } from '@nebular/theme';
 
 const routes: Routes = [
-  {path: 'create', component: CreateAccountComponent },
-  {path: 'update/:id', component: CreateAccountComponent }
+  {path: '', component: SigninComponent }
 ]
 
 @NgModule({
   declarations: [
-    CreateAccountComponent
+    SigninComponent
 ],
   imports: [
     RouterModule.forChild(routes),
-    FormsModule,
-    ReactiveFormsModule,
     NbThemeModule,
     NbLayoutModule,
     NbCardModule,
     NbToastrModule,
     NbButtonModule,
-    NbDialogModule
-
+    NbDialogModule,
+    FormsModule
   ],
   exports: [RouterModule],
+
 })
 
-
-export class CreateAccountModule { }
+export class SigninModule {}
