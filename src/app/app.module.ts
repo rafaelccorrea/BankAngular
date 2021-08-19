@@ -1,3 +1,4 @@
+import { ComponentModule } from './components/components.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
@@ -13,6 +14,7 @@ import { registerLocaleData } from '@angular/common';
 import localePt from '@angular/common/locales/pt';
 import { LOCALE_ID } from '@angular/core';
 import { NgxMaskModule } from 'ngx-mask';
+
 
 registerLocaleData(localePt);
 @NgModule({
@@ -38,6 +40,7 @@ registerLocaleData(localePt);
     NbDialogModule.forChild(),
     NbDialogModule.forRoot(),
     NgxMaskModule.forRoot(),
+    ComponentModule
   ],
   providers: [
     {provide: LOCALE_ID, useValue: 'pt-BR',}],

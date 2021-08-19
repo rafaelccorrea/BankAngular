@@ -5,8 +5,7 @@ import { HomebankModule } from './home-bank/home-bank.module';
 import { CreateAccountModule } from './create-account/create-account.module';
 import { SigninModule } from './signin/signin.module';
 import { SignupModule } from './signup/signup.module';
-
-
+import { DiretivasModule } from './diretivas/diretivas.module'
 @NgModule({
   declarations: [],
   imports: [
@@ -15,7 +14,8 @@ import { SignupModule } from './signup/signup.module';
     SigninModule,
     SignupModule,
     CommonModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    DiretivasModule
   ]
 })
 
