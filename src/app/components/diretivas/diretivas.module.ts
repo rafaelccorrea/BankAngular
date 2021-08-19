@@ -1,16 +1,16 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
-// import { CpfDirective } from './cpf.service'
+import { CpfDirective } from './cpf.directive'
 
 @NgModule({
   declarations: [
-    // CpfDirective
+    CpfDirective
   ],
   imports: [
     CommonModule
   ],
   exports:[
-    // CpfDirective
+    CpfDirective
   ]
 })
 

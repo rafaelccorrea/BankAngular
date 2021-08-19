@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { SignupComponent } from  './signup.component'
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { NbThemeModule, NbLayoutModule, NbCardModule, NbToastrModule, NbButtonModule, NbDialogModule } from '@nebular/theme';
+// import {DiretivasModule} from '../diretivas/diretivas.module'
 
 const routes: Routes = [
   {path: '', component: SignupComponent }
@@ -21,7 +22,8 @@ const routes: Routes = [
     NbCardModule,
     NbToastrModule,
     NbButtonModule,
-    NbDialogModule
+    NbDialogModule,
+    // DiretivasModule
   ],
   exports: [RouterModule],
 })
