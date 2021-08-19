@@ -12,6 +12,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { registerLocaleData } from '@angular/common';
 import localePt from '@angular/common/locales/pt';
 import { LOCALE_ID } from '@angular/core';
+import { NgxMaskModule } from 'ngx-mask';
 
 registerLocaleData(localePt);
 @NgModule({
@@ -35,7 +36,8 @@ registerLocaleData(localePt);
     NbToastrModule.forRoot(),
     NbButtonModule,
     NbDialogModule.forChild(),
-    NbDialogModule.forRoot()
+    NbDialogModule.forRoot(),
+    NgxMaskModule.forRoot(),
   ],
   providers: [
     {provide: LOCALE_ID, useValue: 'pt-BR',}],

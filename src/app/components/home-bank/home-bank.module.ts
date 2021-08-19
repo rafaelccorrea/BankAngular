@@ -2,10 +2,9 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { NbThemeModule, NbLayoutModule, NbCardModule, NbToastrModule, NbButtonModule, NbDialogModule } from '@nebular/theme';
 import { HomeBankComponent } from  './home-bank.component'
-import { registerLocaleData } from '@angular/common';
+import { registerLocaleData, CommonModule } from '@angular/common';
 import localePt from '@angular/common/locales/pt';
 import { LOCALE_ID } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
 
 registerLocaleData(localePt);
 
@@ -25,7 +24,7 @@ const routes: Routes = [
     NbToastrModule,
     NbButtonModule,
     NbDialogModule,
-    BrowserModule
+    CommonModule,
   ],
   providers: [
     {provide: LOCALE_ID, useValue: 'pt-BR',}],

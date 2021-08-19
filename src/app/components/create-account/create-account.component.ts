@@ -14,6 +14,19 @@ export class CreateAccountComponent implements OnInit {
 
   createAccountForm: FormGroup;
 
+  mask:string;
+
+  cpfcnpjmask() {
+    const value = this.createAccountForm.get('document_number').value;
+    console.log(value, value.length,this.createAccountForm)
+    if(value.length <= 14) {
+      this.mask = '00.000.000/0000-00'
+    }
+    else {
+      this.mask = '00.000.0000-00'
+    }
+  }
+
   id: string = this.activatedRoute.snapshot.paramMap.get('id');
 
   constructor(private service: AccountService,

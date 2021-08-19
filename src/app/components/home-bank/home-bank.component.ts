@@ -5,8 +5,6 @@ import { UserService } from 'src/app/services/user/user.service';
 import { AccountService } from 'src/app/services/account/account-bank.service';
 import { AccountResponse, account_form, createAccount } from 'src/app/models/createAccount'
 import { TemplateRef } from '@angular/core';
-
-
 @Component({
   selector: 'app-home-bank',
   templateUrl: './home-bank.component.html',
@@ -20,13 +18,12 @@ export class HomeBankComponent implements OnInit {
     public router: Router,
     private dialogService: NbDialogService){
 
-  }
+    }
 
-  infoBank: createAccount = account_form
+    infoBank: createAccount = account_form
 
-
-  options = [
-    { value: 'previous' , label: 'Duplicate previous', checked: true },
+    options = [
+      { value: 'previous' , label: 'Duplicate previous', checked: true },
     { value: 'all' , label: 'Duplicate all' },
   ];
 
