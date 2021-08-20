@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { CreateAccountComponent } from './create-account.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { NbThemeModule, NbLayoutModule, NbCardModule, NbToastrModule, NbButtonModule, NbDialogModule } from '@nebular/theme';
+import {DiretivasModule} from '../diretivas/diretivas.module'
 
 const routes: Routes = [
   {path: 'create', component: CreateAccountComponent },
@@ -22,7 +23,8 @@ const routes: Routes = [
     NbCardModule,
     NbToastrModule,
     NbButtonModule,
-    NbDialogModule
+    NbDialogModule,
+    DiretivasModule
 
   ],
   exports: [RouterModule],
